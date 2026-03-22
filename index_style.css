@@ -1,0 +1,340 @@
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;700&family=Maven+Pro:wght@400;500;700&display=swap');
+
+
+
+body {
+  margin: 0;
+  font-family: 'Maven Pro', sans-serif;
+  background-color: #F4FFFD;
+  color: #011936;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Josefin Slab', serif;
+  color: #ED254E;
+  font-size: 35px;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #011936;
+  padding: 15px 50px;
+  font-family: 'Josefin Slab', serif;
+  font-size: larger;
+}
+
+.navbar .logo {
+  font-size: 3rem;
+  color: #ED254E;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li a {
+  position: relative;
+  color: #F9DC5C;
+  font-weight: 600;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.navbar .nav-links li a::after {  /*Creates a virtual element inside the link, in the case its the line under each nav link*/
+  content: ''; 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #F9DC5C;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover::after {
+  background-color: #F4FFFD;
+}
+
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.active {
+  color: #F4FFFD;
+}
+
+/* ---------------- Main Section ---------------- */
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.main-content {
+  max-width: 1000px;
+}
+
+.main-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.main-buttons a {
+  display: inline-block; /*means the links are inline with the heading*/
+  text-decoration: none;
+  background-color: #F9DC5C;
+  color: #011936;
+  font-family: 'Josefin Slab', serif;
+  padding: 15px 30px;
+  margin-right: 15px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: larger;
+  transition: all 0.3s ease;
+}
+
+.main-buttons a:hover {
+  background-color: #fe5f55;
+  transform: translateY(-3px);
+}
+
+/* ---------------- Image Strip ---------------- */
+.image-strip {
+  display: flex; /*All items should display in one row*/
+  gap: 10px;
+  padding: 30px 50px;
+  overflow: hidden; 
+  position: relative;
+}
+
+.image-strip img {
+  flex: 0 0 300px; /*Images don't shrink, don't grow, and base width is 300px*/
+  height: 200px;
+  object-fit: cover; /*fit the image-strip container without stretching*/
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+.image-strip img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------- Features Section ---------------- */
+.features {
+  padding: 60px 20px;
+  text-align: center;
+  background-color:  #4f6f96;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+.features h3 {
+  font-size: 2.5rem;
+  color:#F9DC5C;
+  margin-bottom: 40px;
+}
+
+/* Container for cards */
+.feature-cards {
+  display: flex; /*All items should display in one row*/
+  justify-content: center;
+  flex-wrap: wrap; /*If items don't fit in one line, move them to another*/
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual card */
+.card {
+  background-color:#e1e8e6;
+  padding: 25px 20px;
+  border-radius: 15px;
+  width: 200px;
+  min-height: 150px;
+  display: flex; /*All items should display in one row*/
+  flex-direction: column; 
+  justify-content: space-between; /*Equal space between the cards*/
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /*Turns the mouse cursor into a hand, shows the user it is clickable*/
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* Card heading */
+.card h4 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color:  #ED254E; 
+  text-align: center;
+}
+
+/* Card paragraph */
+.card p {
+  color:#465362;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Issue display box below cards */
+#issueDisplay {
+  background-color: #465362;
+  color: #011936;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 15px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#issueDisplay h4 {
+  color: #ED254E;
+  margin-bottom: 15px;
+}
+
+#issueDisplay ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+#issueDisplay li {
+  margin-bottom: 8px;
+}
+
+
+/* ---------------- Community Impact Section ---------------- */
+.community-impact {
+  padding: 50px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.community-impact ul {
+  list-style: disc inside;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333735;
+  margin-left: 15px;
+}
+
+/* ---------------- Testimonials Section ---------------- */
+.testimonials {
+  padding: 50px;
+  text-align: center;
+  background-color: #465362;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: space-around; /*Equal space b/w the items AND space before and after the boxes*/
+  flex-wrap: wrap; /*Move items to another line if they dont fit in one*/
+  gap: 0px;
+  margin-top: 30px;
+}
+
+.testimonial-card {
+  background-color:  #F4FFFD;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px); /*move the box up*/
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.testimonial-card footer {
+  font-style: normal;
+  margin-top: 10px;
+  color: #011936;
+}
+
+
+.testimonial-card footer {
+  color:#F4FFFD;
+  background-color: #011936; 
+}
+
+
+
+/* ---------------- Call-to-Action ---------------- */
+.call_to_action {
+  padding: 50px;
+  text-align: center;
+  background-color: #F9DC5C;
+  border-radius: 15px;
+  margin: 50px;
+}
+
+.call_to_action a.button_report {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #ED254E;
+  color: #011936;
+  font-family: 'Josefin Slab', serif;
+  padding: 15px 30px;
+  margin-right: 15px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: larger;
+  transition: all 0.3s ease;
+
+}
+
+.call_to_action a.button_report:hover {
+  background-color: #C2A83E;
+  transform: translateY(-3px);
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  background-color: #011936;
+  color: #F4FFFD;
+  text-align: center;
+  padding: 30px 50px;
+}
+
+footer a {
+  color: #C2A83E;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fe5f55;
+}
+
+.social-icons a {
+  color: #C2A83E;
+  font-size: 1.8rem;
+  margin: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+

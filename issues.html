@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Issues – Community Tracker</title>
+  <link rel="stylesheet" href="issues_style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Community Tracker</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="report.html">Report Issue</a></li>
+        <li><a href="issues.html" class="active">View Issues</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Login -->
+<section class="top-section">
+  <div class="admin-login-wrapper">
+    
+    <section class="admin-login-section">
+      
+    <h2>Admin Login</h2>
+
+    <p>This login dailogue is for authorized access only.</p>
+    <form id="adminLoginForm" onsubmit="return adminLogin()">
+        
+      <label for="adminUser">Username:</label>
+      <input type="text" id="adminUser" required placeholder="Admin username">
+
+      <label for="adminPass">Password:</label>
+      <input type="password" id="adminPass" required placeholder="Admin password">
+      <br>
+      <button type="submit">Login</button>
+    
+    </form>
+  
+    </section>
+  
+  </div>
+
+  <div class="community-issues-wrapper">
+    <h2>How Reporting Helps:</h2><br>
+    <p>This page helps residents stay informed about reported community issues. By tracking reports, monitoring updates, and 
+      encouraging community participation, the platform supports transparency and accountability. This section below explains how it all works.</p>
+    <section class="issues-info">
+
+    <div class="info-box">
+      <h4>Transparent Tracking</h4>
+      <p>All reported issues are visible to residents to ensure accountability.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>Live Updates</h4>
+      <p>Issue statuses are updated as authorities review and resolve them.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>Community Driven</h4>
+      <p>Every report contributes to a safer, cleaner neighborhood.</p>
+    </div>
+
+    </section>
+  </div>
+</section>
+
+
+<section class="issues-table-section">
+      <!-- Table Heading -->
+      <h3 id="table-heading">Reported Issues Overview</h3>
+
+      <!-- Filters (in one line) -->
+<div id="filters">
+  <label for="categoryFilter"><strong>Filter by Category:</strong></label>
+    
+    <select id="categoryFilter" onchange="filterByCategory()">
+      <option value="all">All Categories</option>
+      <option value="Safety">Safety</option>
+      <option value="Traffic">Traffic</option> 
+      <option value="Environment">Environment</option>
+      <option value="Other">Other</option>
+    </select>
+
+</div>
+
+<!-- Issues Table -->
+<table class="issues-table" id="issuesTable">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Issue</th>
+    <th>Location</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Date Reported</th>
+<!-- Admin-only columns -->
+    <th class="admin-column">Reporter Name</th>
+    <th class="admin-column">Cost</th>
+    <th class="admin-column">Payment Status</th>
+    <th class="admin-column">Delete Case Reported</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>#001</td>
+    <td>Broken Streetlight</td>
+    <td>Al Khalidiya, Abu Dhabi</td>
+    <td>Safety</td>
+    <td>Pending</td>
+    <td>12 Feb 2026</td>
+    <td class="admin-column">John Doe</td>
+    <td class="admin-column"><input type="number" value="200" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval" selected>Pending Approval</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#002</td>
+    <td>Pothole Near School</td>
+    <td>Al Nahda, Sharjah</td>
+    <td>Traffic</td>
+    <td>In Progress</td>
+    <td>10 Feb 2026</td>
+    <td class="admin-column">Sara Ali</td>
+        <td class="admin-column"><input type="number" value="1276.32" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval" selected>Pending Approval</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#003</td>
+    <td>Faded Pedestrian Crossing</td>
+    <td>Deira, Dubai</td>
+    <td>Safety</td>
+    <td>Pending</td>
+    <td>07 Feb 2026</td>
+    <td class="admin-column">Fatima Al Noor</td>
+    <td class="admin-column"><input type="number" value="670.2" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval">Pending Approval</option>
+        <option value="Paid" selected>Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#004</td>
+    <td>Damaged Road Sign</td>
+    <td>Al Warqa, Dubai</td>
+    <td>Traffic</td>
+    <td>Resolved</td>
+    <td>05 Feb 2026</td>
+    <td class="admin-column">Layla Saeed</td>
+    <td class="admin-column"><input type="number" value="150" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval" selected>Pending Approval</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#005</td>
+    <td>Graffiti on Wall</td>
+    <td>Al Fahidi Historic District, Dubai</td>
+    <td>Environment</td>
+    <td>Resolved</td>
+    <td>02 Feb 2026</td>
+    <td class="admin-column">Omar Farid</td>
+    <td class="admin-column"><input type="number" value="436.5" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval">Pending Approval</option>
+        <option value="Paid" selected>Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#006</td>
+    <td>Broken Park Bench</td>
+    <td>Corniche Area, Abu Dhabi</td>
+    <td>Safety</td>
+    <td>Pending</td>
+    <td>01 Feb 2026</td>
+    <td class="admin-column">Sara Noor</td>
+    <td class="admin-column"><input type="number" value="200" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval" selected>Pending Approval</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#007</td>
+    <td>Leaking Fire Hydrant</td>
+    <td>Al Muroor, Abu Dhabi</td>
+    <td>Safety</td>
+    <td>In Progress</td>
+    <td>31 Jan 2026</td>
+    <td class="admin-column">Ahmed Zaki</td>
+    <td class="admin-column"><input type="number" value="570" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval">Pending Approval</option>
+        <option value="Paid" selected>Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#008</td>
+    <td>Overflowing Sewage</td>
+    <td>Mussafah Industrial Area, Abu Dhabi</td>
+    <td>Environment</td>
+    <td>Resolved</td>
+    <td>30 Jan 2026</td>
+    <td class="admin-column">Fatima Hassan</td>
+    <td class="admin-column"><input type="number" value="2542.20" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval" selected>Pending Approval</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  <tr>
+    <td>#009</td>
+    <td>Traffic Light Malfunction</td>
+    <td>Al Qasimia, Sharjah</td>
+    <td>Traffic</td>
+    <td>Pending</td>
+    <td>29 Jan 2026</td>
+    <td class="admin-column">Mohammed Salim</td>
+    <td class="admin-column"><input type="number" value="56.25" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval">Pending Approval</option>
+        <option value="Paid" selected>Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+    <tr>
+    <td>#010</td>
+    <td>Excessive Factory Emissions</td>
+    <td>Mussafah Industrial Area, Abu Dhabi</td>
+    <td>Environment</td>
+    <td>Pending</td>
+    <td>26 Feb 2026</td>
+    <td class="admin-column">Ahmed Ali</td>
+    <td class="admin-column"><input type="number" value="10000" min="0" class="cost-input"></td>
+    <td class="admin-column">
+      <select class="payment-status">
+        <option value="Pending Approval">Pending Approval</option>
+        <option value="Paid" selected>Paid</option>
+      </select>
+    </td>
+    <td class="admin-column"><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+  </tr>
+  
+</tbody>
+
+</table>
+<br><br>
+<!-- Admin-only totals line -->
+<div class="admin-column" id="adminTotals" >
+  <label for="totalPaid">Total Paid:</label>
+  <input type="text" id="totalPaid" readonly >
+
+  <label for="totalPending">Total Pending:</label>
+  <input type="text" id="totalPending" readonly >
+
+  <button type="button" onclick="calculateTotals()">Calculate Totals</button>
+</div>
+
+<br><br>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Local Community Issue Tracker — Built by Eman (1088952) & Sara (1100830)</p>
+      <p>Helping our neighborhood stay safe and clean.</p>
+      <p>Contact: <a href="mailto:communitytracker@hotmail.com" style="color:#ffc857;">communitytracker@hotmail.com</a> | Phone: <a href="tel:+971501088300" style="color:#ffc857;">+971 50 108 8300</a></p>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+// ===== Admin Login =====
+function adminLogin() {
+  var username = document.getElementById("adminUser").value.trim();
+  var password = document.getElementById("adminPass").value.trim();
+
+  if (username === "admin" && password === "1234") {
+    alert("Login successful! Welcome back, Admin :)");
+    
+    // Show admin columns
+    var adminCols = document.querySelectorAll(".admin-column"); /*Select everything with the class name admin-column*/
+    adminCols.forEach(col => col.style.display = "table-cell"); /*For every coloum in adminCols apply the same tyle as the original table*/
+
+    // Show totals div
+    document.getElementById("adminTotals").style.display = "flex"; /*display all in one row*/
+
+    return false; } 
+  
+  else {
+    alert("ACCESS DENIED! Incorrect username or password.");
+    return false;}
+}
+
+// ===== Calculate totals (only when button clicked) =====
+function calculateTotals() {
+  var totalPaid = 0;
+  var totalPending = 0;
+
+  var rows = document.querySelectorAll("#issuesTable tbody tr"); /*Select all the rows from the issues-table body*/
+
+  rows.forEach(row => {
+    var costInput = row.querySelector("input.cost-input"); /*From EVERY individual row select the input values with class name cost-input*/
+    var statusSelect = row.querySelector("select.payment-status"); /*From EVERY individual row select the select values with class name payment-status*/
+
+    if (!costInput || !statusSelect) return; /*Check if the values are null*/
+
+    var cost = parseFloat(costInput.value) || 0; /*If there is a valid number in the input convert to float, otherwise use zero*/
+    var status = statusSelect.value;
+
+    if (status === "Paid") totalPaid += cost;
+    else totalPending += cost;
+  });
+
+  document.getElementById("totalPaid").value = totalPaid.toFixed(2);
+  document.getElementById("totalPending").value = totalPending.toFixed(2);
+}
+
+// ===== Delete row =====
+function deleteRow(button) {
+  var row = button.closest("tr"); /*Closest is a built in JS method, it finds the row in which the button is*/
+  row.remove(); /*Delete the row with the button*/
+}
+
+// ===== Filter by Category =====
+function filterByCategory() {
+  var selected = document.getElementById("categoryFilter").value.toLowerCase();
+  var rows = document.querySelectorAll("#issuesTable tbody tr"); /*Get all the rows in the issues-table body*/
+
+  rows.forEach(row => {
+    var category = row.cells[3].innerText.toLowerCase();  /*From the third cell in that row, get the value for category*/
+    row.style.display = (selected === "all" || category === selected) ? "" : "none"; 
+    /*If the filter value the user selected is all or it match the category of the row = display the row, if not = don't display*/
+  });
+}
+</script>
+</body>
+</html>

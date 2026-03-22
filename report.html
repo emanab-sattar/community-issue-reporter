@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report an Issue - Local Community Issue Tracker</title>
+
+
+   <link rel="stylesheet" href="report_style.css" type="text/css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Community Tracker</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="report.html" class="active">Report Issue</a></li>
+        <li><a href="issues.html">View Issues</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- Report Section -->
+<section class="report-section">
+  <div class="report-container">
+    
+    <!-- Left column: Image -->
+    <div class="report-image">
+      <img src="https://studentsaduac-my.sharepoint.com/:i:/g/personal/1088952_students_adu_ac_ae/IQCbYux1stGyQKhjB4mbTohuAQ5Xleq_-9IIvGosT4xfghU?e=LZAfie" alt="Community Cleanup" />
+    </div>
+
+    <!-- Right column: Form -->
+    <div class="report-form">
+      <h2>Report a Community Issue</h2>
+      <p>Submit any issues in your neighborhood to help authorities take action quickly.</p>
+
+      <form id="issueForm">
+        <!-- Name -->
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+        <!-- Phone -->
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="050 123 4567" pattern="\050 \d{3} \d{4}" required>
+
+        <!-- Address -->
+        <label for="address">Address / Location:</label>
+        <input type="text" id="address" name="address" placeholder="5th Ave, Downtown, Dubai" required>
+
+        <!-- Issue Title -->
+        <label for="title">Issue Title:</label>
+        <input type="text" id="title" name="title"placeholder="Broken Streetlight on 5th Ave" required>
+
+        <!-- Category -->
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="">-- Select Category --</option>
+          <option value="Safety">Safety</option>
+          <option value="Environment">Environment</option>
+          <option value="Traffic">Traffic</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <!-- Urgency (Radio Buttons) -->
+        <p>Urgency:</p>
+        <label><input type="radio" name="urgency" value="Low" required> Low</label>
+        <label><input type="radio" name="urgency" value="Medium"> Medium</label>
+        <label><input type="radio" name="urgency" value="High"> High</label>
+
+
+        <!-- Description -->
+         <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Describe the issue in detail..." rows="5" required></textarea>
+
+        <!-- Submit & Reset -->
+        <div class="form-buttons">
+          <button type="button" class="submit-button" onclick="submitIssue()">Submit Issue</button>
+          <button type="reset" class="submit-button">Clear Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Submitted Issues Section -->
+<div id="submittedHeading">
+  <h3>Submitted Issues</h3>
+  <div id="submittedIssues">
+    <p>No issues submitted yet.</p>
+  </div>
+</div>
+
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Local Community Issue Tracker — Built by Eman (1088952) & Sara (1100830)</p>
+      <p>Helping our neighborhood stay safe and clean.</p>
+      <p>Contact: <a href="mailto:communitytracker@hotmail.com" style="color:#ffc857;">communitytracker@hotmail.com</a> | Phone: <a href="tel:+971501088300" style="color:#ffc857;">+971 50 108 8300</a></p>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Array to store submitted issues (each issue is itself an array)
+  var issueLog = [];
+
+  // Function to submit an issue
+  function submitIssue() {
+    // Get form values
+    var issueTitle = document.getElementById("title").value;
+    var category = document.getElementById("category").value;
+
+    // Get urgency from radio buttons
+    var urgencyRadios = document.getElementsByName("urgency");
+    var urgency = "";
+    for (var i = 0; i < urgencyRadios.length; i++) {
+      if (urgencyRadios[i].checked) {
+        urgency = urgencyRadios[i].value;
+      }
+    }
+
+    // Generate simple random issue ID
+    var issueID = "ISSUE-" + (Math.floor(Math.random() * 9000) + 1000);
+
+    // Get today's date
+    var today = new Date();
+    var dateString = today.toDateString();
+
+    // Message based on urgency
+    var message = "";
+    if (urgency === "Low") {
+      message = "Low urgency. We will get back to you within 13–15 working days.";
+    } else if (urgency === "Medium") {
+      message = "Medium urgency. We will get back to you within 6–7 working days.";
+    } else {
+      message = "High urgency. Authorities will be notified shortly.";
+    }
+
+    // Save issue in memory using only arrays
+    // [id, title, urgency, category, date, message]
+    issueLog.push([issueID, issueTitle, urgency, category, dateString, message]);
+
+    // Show confirmation alert
+    alert(
+      "Issue Submitted Successfully!\n\n" +
+      "Issue: " + issueTitle + "\n" +
+      "Issue ID: " + issueID + "\n" +
+      "Date: " + dateString + "\n" +
+      "Urgency: " + urgency + "\n\n" +
+      message
+    );
+
+    // Reset form
+    document.getElementById("issueForm").reset();
+
+    // Update displayed issues
+    displayIssues();
+  }
+
+  // Function to display submitted issues
+  function displayIssues() {
+    var container = document.getElementById("submittedIssues");
+
+    if (issueLog.length === 0) {
+      container.innerHTML = "<p>No issues submitted yet.</p>";
+      return;
+    }
+
+    // Build HTML list manually
+    var html = "<ul>";
+    for (var i = 0; i < issueLog.length; i++) {
+      var color = "black";
+      if (issueLog[i][2] === "Low") {       // index 2 = urgency
+        color = "green";
+      } else if (issueLog[i][2] === "Medium") {
+        color = "brown";
+      } else if (issueLog[i][2] === "High") {
+        color = "red";
+      }
+
+      html += "<li style='color:" + color + "; margin-bottom:10px;'>" +
+              "<strong>" + issueLog[i][1] + "</strong> | " +   // index 1 = title
+              "ID: " + issueLog[i][0] + " | " +               // index 0 = id
+              "Category: " + issueLog[i][3] + " | " +        // index 3 = category
+              "Urgency: " + issueLog[i][2] + " | " +         // index 2 = urgency
+              "Date: " + issueLog[i][4] +                     // index 4 = date
+              "</li>";
+    }
+    html += "</ul>";
+
+    container.innerHTML = html;
+  }
+
+  // Initialize display when page loads
+  window.onload = function() {
+    displayIssues();
+  }
+</script>
+
+</body>
+</html>

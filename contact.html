@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us – Community Tracker</title>
+  <link rel="stylesheet" href="contact_style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Community Tracker</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="report.html">Report Issue</a></li>
+        <li><a href="issues.html">View Issues</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="contact-header">
+    <h2>Get in Touch With Us</h2>
+    <p>
+      We love hearing from our community! Whether you have questions, suggestions, or want to report something, your voice matters. 
+      Fill out the form or use our contact details to connect directly with our team. Together, we can keep our neighborhoods safe and clean.
+    </p>
+  </section>
+
+  <!-- Contact Section: Two Columns -->
+ <section class="contact-section">
+  <div class="contact-container">
+
+    <!-- Left Column: Video + Description -->
+    <div class="contact-video">
+      <div class="video-text">
+        <h3>Community Engagement</h3>
+        <p>
+          Watch how residents come together to make our neighborhoods safer and cleaner. 
+          Your feedback, reports, and involvement help us take action quickly and create a stronger community.
+        </p>
+      </div>
+      <video src="https://studentsaduac-my.sharepoint.com/:v:/g/personal/1088952_students_adu_ac_ae/IQCbdnoGIAlZQ5Pk1q7ZSZHxAU1jV0VxsJTZx-Mx898M4Qk?e=FYDMud"autoplay muted loop></video>
+    </div>
+
+    <!-- Right Column: Contact Form -->
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form id="contactForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Your message..." rows="6" required></textarea>
+
+        <button type="submit" class="submit-button" onclick="sendMessage()">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Local Community Issue Tracker — Built by Eman (1088952) & Sara (1100830)</p>
+      <p>Helping our neighborhood stay safe and clean.</p>
+      <p>Contact: <a href="mailto:communitytracker@hotmail.com" style="color:#ffc857;">communitytracker@hotmail.com</a> | Phone: <a href="tel:+971501088300" style="color:#ffc857;">+971 50 108 8300</a></p>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function sendMessage(){
+  // grab the form
+  var contactForm = document.getElementById("contactForm");
+  
+    // get form values
+    var name = document.getElementById("name").value;
+    var subject = document.getElementById("subject").value;
+
+    // show message
+    alert("Thanks, " + name + "! Your message about '" + subject + "' has been received. We’ll get back to you soon.");
+
+    // reset form
+    contactForm.reset();
+  }
+</script>
+
+
+</body>
+</html>

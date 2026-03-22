@@ -1,0 +1,249 @@
+
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;700&family=Maven+Pro:wght@400;500;700&display=swap');
+
+
+
+body {
+  margin: 0;
+  font-family: 'Maven Pro', sans-serif;
+  background-color: #F4FFFD;
+  color: #011936;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Josefin Slab', serif;
+  color: #F9DC5C;
+  font-size: 35px;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #011936;
+  padding: 15px 50px;
+  font-family: 'Josefin Slab', serif;
+  font-size: larger;
+}
+
+.navbar .logo {
+  font-size: 3rem;
+  color: #ED254E;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li a {
+  position: relative;
+  color: #F9DC5C;
+  font-weight: 600;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.navbar .nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #F9DC5C;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover::after {
+  background-color: #F4FFFD;
+}
+
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.active {
+  color: #F4FFFD;
+}
+
+/* ---------------- Report Section Layout ---------------- */
+.report-section {
+  display: flex; /*fit in one row*/
+  justify-content: center;
+  padding: 50px;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.report-container {
+  display: flex;
+  flex-wrap: wrap; /*if objects do not fit in one row, move to another*/
+  max-width: 2000px;
+  width: 100%;
+  background-color: #4f6f96;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.report-image {
+  flex: 1 1 45%; /*flex grow =1; flex shrink =1; Base size = 45%*/
+  min-width: 300px;
+}
+
+.report-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*fit image into container without stretching*/
+  display: block;
+}
+
+.report-form {
+  flex: 1 1 40%;  /*flex grow =1; flex shrink =1; Base size = 40%*/
+  padding: 40px;
+  height: 80%;
+  background-color: #4f6f96;
+  color: #F4FFFD;
+}
+
+.report-form h2 {
+  font-family: 'Josefin Slab', serif;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color:#F9DC5C
+}
+
+.report-form p {
+  font-family: 'Maven Pro', sans-serif;
+  margin-bottom: 20px;
+}
+
+.report-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.report-form input:focus, /* :focus is for when you click on a field, and are actively typing in it, it will have a subtle shadow*/
+.report-form select:focus,
+.report-form textarea:focus {
+  outline: none;
+  border-color: #4f6f96;
+  box-shadow: 0 0 5px rgba(230,52,98,0.5);
+}
+
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.submit-button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color:  #ED254E; 
+  color: #011936;
+  font-weight: bold;
+  font-size:larger;
+  font-family: 'Josefin Slab', serif;
+  cursor: pointer; /*turn the cursor into a small hand to show that it is clickable*/
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #C2A83E;
+  transform: translateY(-3px);
+}
+
+/* Radio buttons in one line */
+.report-form p {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.report-form label {
+  display: inline-flex; /* radio buttons appears side by side, and not stacked */
+  align-items: center;
+  margin-right: 20px; /* right space between radio buttons */
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: 500;
+}
+
+.report-form input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Submitted Issues Section */
+#submittedHeading {
+  width: 100%; 
+  background-color: #ffe46a; 
+  color: #011936;
+  padding: 20px 40px; 
+  margin: 30px 0 20px 0;
+  border-radius: 10px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+  box-sizing: border-box;
+}
+
+#submittedHeading h3 {
+  margin: 0; 
+  font-family: 'Josefin Slab', serif;
+  font-size: 2rem;
+  color: #ED254E;
+}
+
+
+
+/* ---------------- Footer ---------------- */
+footer {
+  background-color: #011936;
+  color: #F4FFFD;
+  text-align: center;
+  padding: 30px 50px;
+}
+
+footer a {
+  color: #C2A83E;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fe5f55;
+}
+
+.social-icons a {
+  color: #C2A83E;
+  font-size: 1.8rem;
+  margin: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+
+
+

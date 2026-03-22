@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Issue Tracker</title>
+  
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="index_style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Community Tracker</h1>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="report.html">Report Issue</a></li>
+        <li><a href="issues.html">View Issues</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Image Carousel -->
+  <section class="image-strip">
+      <img src="https://studentsaduac-my.sharepoint.com/:i:/g/personal/1088952_students_adu_ac_ae/IQBXpdYzMzODQJjH51L3gduKAcHC970i0g5IdiNnO_5R3TI?e=40amqq" alt="Community Cleanup 1">
+      <img src="https://studentsaduac-my.sharepoint.com/:i:/g/personal/1088952_students_adu_ac_ae/IQDXevBwbnM1Qo9H7RjgacR8AV-Hnv_RNSUa_QnbJBQVFaU?e=xTaYFS" alt="Community Cleanup 2">
+      <img src="https://studentsaduac-my.sharepoint.com/:i:/g/personal/1088952_students_adu_ac_ae/IQCrwLEfBRFSR5VgUeCOdRZiAXI7U-T_6pwWDUWdNTIsrAY?e=IZIw00" alt="Community Cleanup 3">
+      <img src="https://studentsaduac-my.sharepoint.com/:i:/g/personal/1088952_students_adu_ac_ae/IQDDXAVJbG5XRpTyoHhiFQnUAcrnVEJvoa7Hy_uV-4RRiPM?e=kkX9HI" alt="Community Cleanup 4">
+      <img src="https://studentsaduac-my.sharepoint.com/:i:/g/personal/1088952_students_adu_ac_ae/IQBg1c9B3DtHRoh2dkSRg7HZARzBdt3JBfIedgIqg8r81Po?e=Tqpgfd" alt="Community Cleanup 5">
+    
+  </section>
+
+  <!-- Main Section -->
+  <section class="main">
+    <div class="main-content">
+      <h2>Keep Our Community Safe & Clean</h2>
+      <p>
+        Your voice matters! Report issues in your neighborhood quickly and transparently. Help make our streets, parks, and public spaces safer and cleaner for everyone. From broken streetlights to overflowing trash bins, every issue reported contributes to a stronger, healthier community.
+      </p>
+      <p>
+        Using our platform, you can see which issues are pending, in progress, or resolved. This transparency encourages collective responsibility and ensures that local authorities are accountable to the community.
+      </p>
+      <div class="main-buttons">
+        <a href="report.html" class="button_report">Report an Issue</a>
+        <a href="issues.html" class="button_issues">View All Issues</a>
+      </div>
+  </section>
+
+
+
+
+<!-- Features Section -->
+<section class="features">
+  <h3>Community Achievements</h3>
+
+  
+  <div class="feature-cards">
+    <div class="card" onclick="showIssues(0)">
+      <h4>Safety</h4>
+      <p>Click to see solved issues!</p>
+    </div>
+    <div class="card" onclick="showIssues(1)">
+      <h4>Traffic</h4>
+      <p>Click to see solved issues!</p>
+    </div>
+    <div class="card" onclick="showIssues(2)">
+      <h4>Environment</h4>
+      <p>Click to see solved issues!</p>
+    </div>
+  </div>
+
+  <!-- Display selected issues -->
+  <div id="issueDisplay" style="margin-top:20px; background:#F9DC5C; padding:15px; border-radius:10px;">
+    <p>Click a box above to see solved issues.</p>
+  </div>
+</section>
+
+
+
+
+<!-- Community Impact Section -->
+<section class="community-impact">
+  <h3>How Residents Make a Difference</h3>
+  <ul>
+    <li>Residents submit issues like broken streetlights, potholes, and overflowing bins, helping authorities act faster.</li>
+    <li>Community members volunteer for local cleanups and report unsafe areas.</li>
+    <li>Feedback is logged and tracked, creating transparency on what actions are being taken.</li>
+    <li>Collective efforts improve the safety, cleanliness, and overall quality of neighborhoods.</li>
+    <li>Residents stay informed and involved, fostering a stronger sense of community.</li>
+  </ul>
+</section>
+
+
+
+
+  <!-- Testimonials Section -->
+<section class="testimonials">
+  <h3>What Residents Are Saying</h3>
+  <div class="testimonial-cards">
+    <blockquote class="testimonial-card">
+      "I reported a broken streetlight last month, and it was fixed in just 3 days! This tracker really works."
+      <footer>- A. Al-Farsi, Downtown</footer>
+    </blockquote>
+    <blockquote class="testimonial-card">
+      "Being able to see the progress of issues gives me confidence that my concerns are heard."
+      <footer>- M. Saeed, Al Zahra</footer>
+    </blockquote>
+    <blockquote class="testimonial-card">
+      "The platform is easy to use and makes me feel like I am making a difference."
+      <footer>- L. Khan, Marina</footer>
+    </blockquote>
+  </div>
+</section>
+
+
+
+
+  <!-- Call-to-Action Section -->
+  <section class="call_to_action">
+    <h3>Ready to Make a Difference?</h3>
+    <p>Start reporting issues today and help build a stronger, safer community for everyone.</p>
+    <div style="margin-top:20px;">
+      <br>
+      <a href="report.html" class="button_report">Report an Issue</a>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Local Community Issue Tracker — Built by Eman (1088952) & Sara (1100830)</p>
+      <p>Helping our neighborhood stay safe and clean.</p>
+      <p>Contact: <a href="mailto:communitytracker@hotmail.com" style="color:#ffc857;">communitytracker@hotmail.com</a> | Phone: <a href="tel:+971501088300" style="color:#ffc857;">+971 50 108 8300</a></p>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+<script>
+  // Arrays for each category: [title, days, cost]
+  var safetyIssues = [
+    ["Broken streetlight fixed", 2, 200],
+    ["Illegal parking resolved", 14, 50],
+    ["Neighborhood watch set up", 5, 0]  
+  ];
+
+  var trafficIssues = [
+    ["Traffic signal repaired", 7, 500],
+    ["Potholes filled", 5, 300],
+    ["Speed bumps added", 4, 250]
+  ];
+
+  var environmentIssues = [
+    ["Park cleaned", 1, 0],
+    ["Garbage collected", 1, 0],
+    ["Tree planted", 2, 50]
+  ];
+
+  // Function called when user clicks a box
+  function showIssues(index) {
+    var issues;        // array of issues
+    var categoryName;  // category title
+
+    // Pick the right category
+    if (index === 0) {
+      issues = safetyIssues;
+      categoryName = "Safety";
+    } else if (index === 1) {
+      issues = trafficIssues;
+      categoryName = "Traffic";
+    } else if (index === 2) {
+      issues = environmentIssues;
+      categoryName = "Environment";
+    }
+
+    // Start building HTML to display
+    var message = "<h4>Solved Issues (" + categoryName + "):</h4><ul>";
+    var totalDays = 0;
+    var totalCost = 0;
+
+    // Loop through first 2 issues
+    for (var i = 0; i < 3; i++) {
+      message += "<li>" + issues[i][0] + " - " + issues[i][1] + " days - Cost: $" + issues[i][2] + "</li>";
+      totalDays += issues[i][1];
+      totalCost += issues[i][2];
+    }
+
+    // Calculate average days
+    var avgDays = totalDays /3;
+
+    // Finish HTML
+    message += "</ul>";
+    message += "<p>Average days to resolve: " + avgDays.toFixed(2) + " days </p>";
+    message += "<p>Total cost: $" + totalCost + "</p>";
+
+    // Show in page
+    document.getElementById("issueDisplay").innerHTML = message;
+
+  }
+</script>
+
+</body>
+</html>
